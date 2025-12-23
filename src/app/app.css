@@ -1,0 +1,29 @@
+    .Cards{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+
+.power_bad {
+    color: red;
+    background-color: rgba(255, 4, 4, 0.134);
+    font-weight: bold;
+}
+.power_average {
+    color: orange;
+    background-color: rgba(255, 165, 0, 0.134);
+    font-weight: bold;
+}
+.power_good {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.134);
+    font-weight: bold;
+}

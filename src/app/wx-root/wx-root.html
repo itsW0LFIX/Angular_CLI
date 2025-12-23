@@ -1,19 +1,40 @@
-
+<style>
+        *{
+        font-family: Arial, sans-serif;
+    }
+    .Container{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+    .Header{
+        padding: 10px;
+    }
+    .Add-Hero{
+        margin: 20px 0;
+    }
+    .Add-Hero input{
+        padding: 10px;
+        margin-right: 10px;
+        width: 200px;
+    }
+    .Add-Hero button{
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .Add-Hero button:hover{
+        background-color: #218838;
+    }
+</style>
 <div class="Container">
-    <div class="Header">
-        <h1>Hero App</h1>
-    </div>
     <div class="Add-Hero">
         <input type="text" [(ngModel)]="inputName" placeholder="Hero Name" >
-        <input type="text" [(ngModel)]="inputPower" placeholder="Hero Power">
-        <input type="text" [(ngModel)]="inputImageUrl" placeholder="Hero img url">
+        <input type="number" [(ngModel)]="inputPower" placeholder="Hero Power">
+        <input type="url" [(ngModel)]="inputImageUrl" placeholder="Hero img url">
         <button (click)="addHero()">Add Hero</button>
     </div>
-    <div class="Cards">
-        <div *ngFor="let hero of AddHero" [ngStyle]="StylesCard">
-            <img src="{{hero.imageUrl}}" alt="{{hero.name}}">
-            <h2>N. {{hero.name}}</h2>
-            <h3>P. {{hero.power}} K</h3>
-        </div>
-    </div>
+
 </div>

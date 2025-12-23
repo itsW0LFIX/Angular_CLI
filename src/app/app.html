@@ -1,12 +1,18 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <!-- <p>Hello</p>
-      <p style="color: aqua;">{{ title() }}</p> -->
-      <app-wx-root></app-wx-root>
-      
-    </div>
-  </div>
-</main>
+<app-wx-root (heroAdded)="onHeroAdded($event)"></app-wx-root>
 
-<router-outlet />
+<div class="Cards">
+  <div *ngFor="let hero of AddHero"
+      [ngStyle]="StylesCard"
+      [ngClass]="{
+        power_bad: hero.power < 100,
+        power_average: hero.power >= 100 && hero.power <= 200,
+        power_good: hero.power > 200
+      }">
+
+    <img [src]="hero.imageUrl" [alt]="hero.name">
+    <h2>N. {{ hero.name }}</h2>
+    <h3>P. {{ hero.power }}</h3>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,80 +1,42 @@
-// wx-root.ts
 import { NgClass, NgForOf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-wx-root',
   standalone: true,
-  imports: [
-    FormsModule,
-    NgForOf,
-    NgStyle,
-    NgClass,
-  ],
+  imports: [FormsModule],
   templateUrl: './wx-root.html',
   styleUrl: './wx-root.css',
 })
 
-
 export class WxRoot {
 
-titelwx = 'wolfix';
-Hero = { 
-  name: '',
-  power: '',
-  imageUrl: ''
-};
+  @Output() heroAdded = new EventEmitter<{
+    name: string;
+    power: number;
+    imageUrl: string;
+  }>();
 
-inputName='';
-inputPower='';
-inputImageUrl='';
+  inputName = '';
+  inputPower = 0;
+  inputImageUrl = '';
 
-AddHero: { name: string; power: string; imageUrl: string }[] = [];
+  addHero() {
+    if (!this.inputName || !this.inputPower || !this.inputImageUrl) {
+      return;
+    }
 
-StylesCard = {}
 
-addHero() {
-  // hard stop if ANY input is empty
-  if (!this.inputName || !this.inputPower || !this.inputImageUrl) {
-    return;
+    this.heroAdded.emit({
+      name: this.inputName,
+      power: this.inputPower,
+      imageUrl: this.inputImageUrl
+    });
+
+    this.inputName = '';
+    this.inputPower = 0;
+    this.inputImageUrl = '';
   }
-
-  this.AddHero.push({
-    name: this.inputName,
-    power: this.inputPower,
-    imageUrl: this.inputImageUrl
-  });
-
-  this.StylesCard = {
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    padding: '10px',
-    width: '200px',
-    textAlign: 'center'
-  };
-
-  // reset inputs
-  this.inputName = '';
-  this.inputPower = '';
-  this.inputImageUrl = '';
 }
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-}
-
-
