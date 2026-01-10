@@ -1,5 +1,4 @@
-<style>
-        *{
+    *{
         font-family: Arial, sans-serif;
     }
     .Container{
@@ -28,13 +27,3 @@
     .Add-Hero button:hover{
         background-color: #218838;
     }
-</style>
-<div class="Container">
-    <div class="Add-Hero">
-        <input type="text" [(ngModel)]="inputName" placeholder="Hero Name" >
-        <input type="number" [(ngModel)]="inputPower" placeholder="Hero Power">
-        <input type="url" [(ngModel)]="inputImageUrl" placeholder="Hero img url">
-        <button (click)="addHero()">Add Hero</button>
-    </div>
-
-</div>

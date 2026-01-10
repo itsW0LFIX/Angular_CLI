@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WxRoot } from './wx-root';
+import { Welcomepage } from './welcomepage';
 
-describe('WxRoot', () => {
-  let component: WxRoot;
-  let fixture: ComponentFixture<WxRoot>;
+describe('Welcomepage', () => {
+  let component: Welcomepage;
+  let fixture: ComponentFixture<Welcomepage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WxRoot]
+      imports: [Welcomepage]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WxRoot);
+    fixture = TestBed.createComponent(Welcomepage);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

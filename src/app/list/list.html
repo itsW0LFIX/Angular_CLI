@@ -1,0 +1,14 @@
+<div class="Cards">
+  <div *ngFor="let hero of store.heroes"
+        [ngStyle]="StylesCard"
+        [ngClass]="{
+          power_bad: hero.power < 100,
+          power_average: hero.power >= 100 && hero.power <= 200,
+          power_good: hero.power > 200
+        }">
+
+    <img [src]="hero.imageUrl" [alt]="hero.name">
+    <h2>N_ {{ hero.name }}</h2>
+    <h3>P_ {{ hero.power }}</h3>
+  </div>
+</div>
