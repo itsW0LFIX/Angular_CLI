@@ -1,3 +1,4 @@
+// src/app/hero-store.ts
 import { Injectable } from '@angular/core';
 
 export interface Hero {

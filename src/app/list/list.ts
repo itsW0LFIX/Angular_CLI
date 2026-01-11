@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { NgForOf, NgStyle, NgClass } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NgForOf, NgStyle, NgClass,NgFor } from '@angular/common';
 import { HeroStore } from '../hero-store';
-
+import { HeroService } from '../hero.service';
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -11,7 +11,16 @@ import { HeroStore } from '../hero-store';
 })
 export class List {
 
-  constructor(public store: HeroStore) {}
+
+    heroes: any[] = [];
+
+  constructor(private heroService: HeroService) {}
+
+  ngOnInit() {
+    this.heroes = this.heroService.getHeroes();
+    console.log(this.heroes);
+  }
+  // constructor(public store: HeroStore) {}
 
   StylesCard = {
     border: '1px solid #ccc',
@@ -21,3 +30,7 @@ export class List {
     textAlign: 'center'
   };
 }
+// export class ListComponent implements OnInit {
+
+
+// }
